@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <resources>
+
+        <color name="purple_800_dark">#FF102027</color>
+        <color name="purple_900_dark">#FF0A1015</color>
+        <color name="purple_light">#FFEBE6F0</color>
+        <color name="purple_dark">#FF0A0816</color>
+        <color name="purple_grey">#FFBDB9C3</color>
+        <color name="purple_50">#FFE8EAF6</color>
+        <color name="purple_100">#FFC5CAE9</color>
+        <color name="purple_200">#FF9FA8DA</color>
+        <color name="purple_300">#FF7986CB</color>
+        <color name="purple_400">#FF5C6BC0</color>
+        <color name="purple_500">#FF3F51B5</color>
+        <color name="purple_600">#FF3949AB</color>
+        <color name="purple_700">#FF303F9F</color>
+        <color name="purple_800">#FF283593</color>
+        <color name="purple_900">#FF1A237E</color>
+        <color name="purple_A100">#FF8C9EFF</color>
+        <color name="purple_A200">#FF536DFE</color>
+        <color name="purple_A400">#FF3D5AFE</color>
+        <color name="purple_A700">#FF304FFE</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="gray">#C3C3C3</color>
+        <color name="primary">#EB455F</color>
+        <color name="primary2">#72EC435D</color>
+        <color name="secondary1">#2B3467</color>
+        <color name="secondary2">#BAD7E9</color>
+        <color name="secondary3">#FCFFE7</color>
+        <color name="warning">#EED202</color>
+        <color name="error">#FF0000</color>
+
+    <color name="lavender">#E6E6FA</color>
+    <color name="lavender_light">#F1EDFF</color>
+    <color name="lavender_dark">#C5B3FF</color>
+    <color name="lavender_gray">#DDD9E7</color>
+    <color name="lavender_pink">#F5E1FF</color>
+    <color name="pink_lavender">#FFEBF6</color>
+    <color name="purple_lavender">#D1C4E9</color>
+    <color name="lavender_purple">#B39DDB</color>
+
+     <color name="pink_50">#FFFCE4EC</color>
+     <color name="pink_100">#FFF8BBD0</color>
+     <color name="pink_200">#FFF48FB1</color>
+     <color name="pink_300">#FFF06292</color>
+     <color name="pink_400">#FFEC407A</color>
+     <color name="pink_500">#FFE91E63</color>
+     <color name="pink_600">#FFD81B60</color>
+     <color name="pink_700">#FFC2185B</color>
+     <color name="pink_800">#FFAD1457</color>
+     <color name="pink_900">#FF880E4F</color>
+     <color name="pink_A100">#FFFF80AB</color>
+     <color name="pink_A200">#FFFF4081</color>
+     <color name="pink_A400">#FFF50057</color>
+     <color name="pink_A700">#FFC51162</color>
+   </resources>

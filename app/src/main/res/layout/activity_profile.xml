@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/updateInfo"
+        android:layout_width="240dp"
+        android:layout_height="39dp"
+        android:text="@string/click_to_update_your_information"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="424dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="220dp"
+        android:background="@color/lavender_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                style="@style/imageStyle"
+                android:layout_width="48dp"
+                android:layout_height="43dp"
+                android:layout_margin="5dp"
+
+                app:srcCompat="@drawable/name" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                style="@style/imageStyle"
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+
+                android:layout_marginTop="60dp"
+                app:srcCompat="@drawable/email1" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                style="@style/imageStyle"
+                android:layout_width="36dp"
+                android:layout_height="32dp"
+                android:layout_margin="10dp"
+
+                app:srcCompat="@drawable/call" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                style="@style/imageStyle"
+                android:layout_width="46dp"
+                android:layout_height="43dp"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/icons8_lgbtq_30" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                style="@style/imageStyle"
+                android:layout_width="42dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/birthdaycake" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fnameLable"
+                style="@style/txtStyle"
+                android:layout_height="35dp"
+                android:text="First name" />
+
+            <TextView
+                android:id="@+id/lnameLable"
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:text="Last name" />
+
+            <TextView
+                android:id="@+id/emailLable"
+                style="@style/txtStyle"
+
+                android:text="Email" />
+
+            <TextView
+                android:id="@+id/phoneLable"
+                style="@style/txtStyle"
+                android:text="Phone number" />
+
+            <TextView
+                android:id="@+id/citiLable"
+                style="@style/txtStyle"
+                android:text="Gender" />
+
+            <TextView
+                android:id="@+id/BODlable"
+                style="@style/txtStyle"
+                android:text="Date of birth" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="229dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fnametxt"
+                style="@style/txtStyle1"
+                android:layout_height="35dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/lnametxt"
+                style="@style/txtStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/emailtxt"
+                style="@style/txtStyle1"
+                android:shadowColor="#4A4848"
+                android:textColor="#4A4848" />
+
+            <TextView
+                android:id="@+id/phonetxt"
+                style="@style/txtStyle1"
+                android:textColor="#4A4848" />
+
+            <TextView
+                android:id="@+id/gendertxt"
+                style="@style/txtStyle1"
+                android:textColor="#4A4848" />
+
+            <TextView
+                android:id="@+id/dobtxt"
+                style="@style/txtStyle1"
+                android:textColor="#4A4848" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="155dp"
+        android:layout_height="137dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053"
+        app:srcCompat="@drawable/profile" />
+
+    <Button
+        android:id="@+id/userActivity"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/lavender_purple"
+        android:text="@string/your_activity"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="100dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/lavender_purple"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textColorLink="#1B3685"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

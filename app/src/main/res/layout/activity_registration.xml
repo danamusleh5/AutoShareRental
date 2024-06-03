@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:textAlignment="center"
+    tools:context=".RegistrationActivity">
+
+
+    <TextView
+        android:id="@+id/motto_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="monospace"
+        android:text="Find the Perfect Car For You"
+        android:textColor="#F6F6F6"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/and_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:text="and"
+        android:textColor="#FDFDFD"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/motto_txt" />
+
+    <TextView
+        android:id="@+id/motto2_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Hit the Road!"
+        android:textColor="#EFEDED"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/and_txt" />
+
+    <EditText
+        android:id="@+id/firstname_txt"
+        android:layout_width="223dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="104dp"
+        android:backgroundTint="#565A56"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        android:textColor="#FFFDFD"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/motto_txt" />
+
+    <EditText
+        android:id="@+id/lastname_txt"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#565A56"
+        android:ems="5"
+        android:gravity="center"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        android:textColor="#FFFDFD"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstname_txt" />
+
+
+    <Spinner
+        android:id="@+id/gender_spn"
+        android:layout_width="161dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="224dp"
+        android:backgroundTint="#565A56"
+        android:foregroundTintMode="screen"
+        android:popupBackground="#565A56"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastname_txt"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/email_txt"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#565A56"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFDFD"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastname_txt"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/number_txt"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#565A56"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:textColor="#FFFDFD"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_txt"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#565A56"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="#FFFDFD"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_txt"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/registration_btn"
+        android:layout_width="121dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:width="180dp"
+        android:elegantTextHeight="true"
+        android:text="@string/register"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintCircleRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/registeredaccount_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="monospace"
+        android:text="@string/already_have_an_account"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_page_btn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/login_page_btn"
+        android:layout_width="96dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginBottom="56dp"
+        android:width="180dp"
+        android:elegantTextHeight="true"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/signinReg"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

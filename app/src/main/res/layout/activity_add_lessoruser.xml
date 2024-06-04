@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="241dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Add Lessor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="272dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="274dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/editTextFirstName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Last Name" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="278dp"
+        android:layout_height="62dp"
+        android:layout_below="@id/editTextLastName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="278dp"
+        android:layout_height="59dp"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="278dp"
+        android:layout_height="59dp"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Phone Number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editTextCity"
+        android:layout_width="277dp"
+        android:layout_height="57dp"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="City" />
+
+    <LinearLayout
+        android:layout_width="374dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="500dp"
+        android:orientation="horizontal">
+
+
+        <Spinner
+            android:id="@+id/gender_spn"
+            android:layout_width="156dp"
+            android:layout_height="92dp"
+            android:layout_below="@id/editTextAge"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp" />
+
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="158dp"
+            android:layout_height="59dp"
+            android:layout_below="@id/editTextCity"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Age"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonAddUser"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="600dp"
+        android:text="Add User" />
+
+</RelativeLayout>
+</ScrollView>

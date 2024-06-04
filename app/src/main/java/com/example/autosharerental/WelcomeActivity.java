@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.FirebaseApp;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     ImageView welcomeImg;
@@ -20,6 +22,11 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        // Firebase
+        FirebaseApp.initializeApp(this);
+
+
 
         // Initialize views
         welcomeImg = findViewById(R.id.welcome_img);
@@ -33,7 +40,8 @@ public class WelcomeActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //  startActivity(new Intent(WelcomeActivity.this, LogInActivity.class));
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

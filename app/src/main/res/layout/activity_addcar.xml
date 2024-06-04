@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="345dp"
+        android:layout_height="124dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Car"
+        android:textSize="24sp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Car Details -->
+    <EditText
+        android:id="@+id/editTextCarName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Name"
+        android:layout_below="@id/title"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextCarModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Model"
+        android:layout_below="@id/editTextCarName"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextCarYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Year"
+        android:layout_below="@id/editTextCarModel"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextCarPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Price"
+        android:layout_below="@id/editTextCarYear"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- Button to Add Car -->
+    <Button
+        android:id="@+id/buttonAddCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Car"
+        android:layout_below="@id/editTextCarPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+</RelativeLayout>

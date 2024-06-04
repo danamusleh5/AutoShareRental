@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="345dp"
+        android:layout_height="124dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+         />
+
+    <!-- Welcome Text -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="33sp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="293dp"
+        android:layout_height="78dp"
+        android:layout_below="@id/logo"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="86dp"
+        android:layout_marginBottom="86dp"
+        android:text="Feel Safe...Add Cars... We're with You... "
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/iconAddCar"
+        android:layout_width="315dp"
+        android:layout_height="215dp"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/addcar" />
+
+
+    <LinearLayout
+        android:layout_width="226dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="490dp"
+        android:layout_marginEnd="80dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/iconAbout"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/iconProfile"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/about" />
+
+        <ImageView
+            android:id="@+id/iconProfile"
+            android:layout_width="57dp"
+            android:layout_height="85dp"
+            android:layout_below="@id/iconAddCar"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/profile2" />
+    </LinearLayout>
+</RelativeLayout>

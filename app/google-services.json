@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "789290378615",
+    "firebase_url": "https://carrental-f2f33-default-rtdb.firebaseio.com",
+    "project_id": "carrental-f2f33",
+    "storage_bucket": "carrental-f2f33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789290378615:android:bdaa7cc75fe0706fa7ad72",
+        "android_client_info": {
+          "package_name": "com.example.autosharerental"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1lCMXgmDtszDwQh2sFRTLMRt2bK7qPRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

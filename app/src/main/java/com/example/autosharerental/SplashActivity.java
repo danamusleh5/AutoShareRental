@@ -11,15 +11,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    ImageView img_logo;
-    TextView tf_note;
+     ImageView logo;
+     TextView text;
     private Animation top;
     private int count = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,53 +27,45 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void setupView() {
-        img_logo = findViewById(R.id.img_logo);
-        tf_note = findViewById(R.id.tf_note);
+        logo = findViewById(R.id.splashLogo);
+        text = findViewById(R.id.splashText);
 
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-        String user_id = sharedPreferences.getString("userId", null);
-
+        String userId = sharedPreferences.getString("userId", "");
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        logo.setAnimation(top);
 
-        img_logo.setAnimation(top);
-
-
-        final String animateText = tf_note.getText().toString();
-        tf_note.setText("");
+        final String animateText = text.getText().toString();
+        text.setText("");
 
         new CountDownTimer(animateText.length() * 150, 150) {
-
             @Override
-            public void onTick(long l) {
-                tf_note.setText(tf_note.getText().toString() + animateText.charAt(count));
+            public void onTick(long millisUntilFinished) {
+                text.setText(text.getText().toString() + animateText.charAt(count));
                 count++;
             }
 
             @Override
             public void onFinish() {
-
+                // Do nothing
             }
         }.start();
-
-
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent;
-
-               if (user_id == null || user_id.equals(""))
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
-
-               else
+//                if (userId == null || userId.isEmpty())
+//                    intent = new Intent(SplashActivity.this, MainActivity.class);
+//                else
                     intent = new Intent(SplashActivity.this, WelcomeActivity.class);
 
                 startActivity(intent);
-               finish();
+                finish();
             }
         }, 7000);
     }

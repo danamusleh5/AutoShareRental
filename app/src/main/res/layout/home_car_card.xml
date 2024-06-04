@@ -2,14 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_car1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="30dp"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/car_img"
+        android:id="@+id/carImage"
         android:layout_width="300dp"
         android:layout_height="214dp"/>
 
@@ -18,7 +17,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/carName_txt"
+            android:id="@+id/carName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -27,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/carPrice_txt"
+            android:id="@+id/carPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"

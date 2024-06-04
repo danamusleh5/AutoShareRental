@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".UpdateProfile">
+    <LinearLayout
+        android:layout_width="386dp"
+        android:layout_height="314dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="105dp"
+            android:layout_height="244dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView style="@style/edittxt"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:text="@string/first_name"/>
+            <TextView style="@style/edittxt"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="@string/last_name"/>
+            <TextView style="@style/edittxt"
+                android:layout_height="65dp"
+                android:text="@string/email"/>
+            <TextView style="@style/edittxt"
+                android:layout_height="74dp"
+                android:text="Phone No."/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="254dp"
+            android:layout_height="249dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <EditText android:id="@+id/fName_edt"
+                style="@style/neweditDataStyle"
+                android:layout_height="55dp"
+                android:hint="@string/type_here"
+                android:textColorHint="@color/purple_500"/>
+
+            <EditText android:id="@+id/lName_edt"
+                style="@style/neweditDataStyle"
+                android:layout_width="200dp"
+                android:layout_height="56dp"
+                android:ems="10"
+                android:hint="@string/type_here"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/purple_500"
+                android:textSize="18sp"/>
+            <EditText
+                android:id="@+id/email_edt" style="@style/neweditDataStyle"
+                android:layout_height="59dp"
+                android:hint="@string/type_here"
+                android:textColorHint="@color/purple_500"/>
+            <EditText
+                android:id="@+id/phoneN_edt" style="@style/neweditDataStyle"
+                android:layout_height="57dp"
+                android:hint="@string/type_here"
+                android:textColorHint="@color/purple_500"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="333dp"
+        android:layout_height="135dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026"
+        app:srcCompat="@drawable/update"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:text="@string/update_your_contact_information"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.221"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="156dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="@color/purple_200"
+        android:backgroundTintMode="src_in"
+        android:text="@string/Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="131dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/purple_200"
+        android:text="@string/ButtonBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

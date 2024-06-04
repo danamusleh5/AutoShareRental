@@ -1,129 +1,96 @@
 package com.example.autosharerental;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-//import com.google.android.gms.tasks.OnCompleteListener;
-//import com.google.android.gms.tasks.Task;
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    static String user_id;
-    private TextView updateInfo;
-    private Button userActivity, logout_btn;
-    private TextView name, lname, email, contact, gender, dob;
-   // private DatabaseReference rootDatabaseref;
+    TextView firstName, lastName, emailText, phoneNumber, gender, birthDate , roleText;
+    Button logout, updateProfile;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getReference();
 
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        emailText = findViewById(R.id.emailtxt);
+        phoneNumber = findViewById(R.id.phoneNumber);
+        gender = findViewById(R.id.gender);
+        birthDate = findViewById(R.id.birthDate);
+        roleText = findViewById(R.id.role);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-        user_id = sharedPreferences.getString("userId", "");
+        logout = findViewById(R.id.logout);
+        updateProfile = findViewById(R.id.updateProfile);
 
-        userActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, UserActivity.class);
-                intent.putExtra("userId", user_id);
-                startActivity(intent);
-            }
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String userEmail = getUserEmail();
+
+        if (userEmail != null) {
+            fetchUserDataFromDatabase(userEmail);
+        } else {
+
+            Toast.makeText(this, "User email not found", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+
+        logout.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            finish();
         });
 
-
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("userId", null);
-                editor.apply();
-
-//                Intent intent = new Intent(ProfileActivity.this, LogInActivity.class);
-//                intent.putExtra("userId", "");
-//                startActivity(intent);
-//                finish();
-            }
+        updateProfile.setOnClickListener(view -> {
+            Intent intent = new Intent(ProfileActivity.this, UpdateProfile.class);
+            startActivity(intent);
+            finish();
         });
-
-        updateInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, UpdateProfile.class);
-                intent.putExtra("userId", user_id);
-                startActivity(intent);
-            }
-        });
-//
-//        rootDatabaseref = FirebaseDatabase.getInstance().getReference();
-//        rootDatabaseref.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    if (task.getResult().exists()) {
-//                        DataSnapshot dataSnapshot = task.getResult();
-//                        String data1 = dataSnapshot.child("users").child(user_id).child("firstName").getValue(String.class);
-//                        String data2 = dataSnapshot.child("users").child(user_id).child("email").getValue().toString().trim();
-//                        String data3 = dataSnapshot.child("users").child(user_id).child("phoneNumber").getValue().toString().trim();
-//                        String data4 = dataSnapshot.child("users").child(user_id).child("gender").getValue().toString().trim();
-//                        String data5 = dataSnapshot.child("users").child(user_id).child("lastName").getValue().toString().trim();
-//                        String data6 = dataSnapshot.child("users").child(user_id).child("dob").getValue().toString().trim();
-//
-//                        name.setText(data1);
-//                        email.setText(data2);
-//                        contact.setText(data3);
-//                        gender.setText(data4);
-//                        lname.setText(data5);
-//                        dob.setText(data6);
-//                    }
-//                }
-//            }
-//        });
-//
-//        SharedPreferences shp = getSharedPreferences("key",MODE_PRIVATE);
-//        String value1 = shp.getString("value1", " ");
-//        String value2 = shp.getString("value2", " ");
-//        String value3 = shp.getString("value3", " ");
-//        String value4 = shp.getString("value4", " ");
-//        String value5 = shp.getString("value5", " ");
-//        String value6 = shp.getString("value6", " ");
-//
-//        name.setText(value1);
-//        email.setText(value2);
-//        contact.setText(value3);
-//        gender.setText(value4);
-//        lname.setText(value5);
-//        dob.setText(value6);
-
-
     }
 
-    private void getReference() {
-        updateInfo = findViewById(R.id.updateInfo);
-        userActivity = findViewById(R.id.userActivity);
-        name = findViewById(R.id.fnametxt);
-        email = findViewById(R.id.emailtxt);
-        contact = findViewById(R.id.phonetxt);
-        gender = findViewById(R.id.gendertxt);
-        lname = findViewById(R.id.lnametxt);
-        dob = findViewById(R.id.dobtxt);
-        logout_btn = findViewById(R.id.logout_btn);
+    private String getUserEmail() {
 
+        return sharedPreferences.getString("user_email", null);
+    }
 
+    void fetchUserDataFromDatabase(String email) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users")
+                .whereEqualTo("email", email)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        QuerySnapshot querySnapshot = task.getResult();
+                        if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                            DocumentSnapshot document = querySnapshot.getDocuments().get(0);
+
+                            firstName.setText(document.getString("firstName"));
+                            lastName.setText(document.getString("lastName"));
+                            emailText.setText(document.getString("email"));
+                            phoneNumber.setText(document.getString("phoneNumber"));
+                            gender.setText(document.getString("gender"));
+                            birthDate.setText(document.getString("birthDate"));
+                            roleText.setText(document.getString("role"));
+                        } else {
+                            Toast.makeText(ProfileActivity.this, "User not found", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(ProfileActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

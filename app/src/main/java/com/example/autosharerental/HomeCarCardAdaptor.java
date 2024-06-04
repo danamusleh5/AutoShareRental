@@ -53,9 +53,9 @@ public class HomeCarCardAdaptor extends RecyclerView.Adapter<HomeCarCardAdaptor.
         public HomeCarCardHolder(@NonNull View itemView) {
             super(itemView);
 
-            car_img = itemView.findViewById(R.id.car_img);
-            carName_txt = itemView.findViewById(R.id.carName_txt);
-            carPrice_txt = itemView.findViewById(R.id.carPrice_txt);
+            car_img = itemView.findViewById(R.id.carImage);
+            carName_txt = itemView.findViewById(R.id.carName);
+            carPrice_txt = itemView.findViewById(R.id.carPrice);
 
             itemView.setOnClickListener(this);
         }

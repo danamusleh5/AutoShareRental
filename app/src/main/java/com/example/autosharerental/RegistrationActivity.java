@@ -9,26 +9,25 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
-    EditText firstname_txt;
-    EditText lastname_txt;
-    EditText email_txt;
-    EditText number_txt;
-    EditText password;
-    String dob_txt;
-
+    EditText firstname_txt ,lastname_txt , email_txt , number_txt , password , age , city;
     Spinner gender_spn;
-    Button registration_btn;
-    Button login_page_btn;
-    boolean isAllChecked = false;
-
+    Button signUpButton , signInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,55 +38,46 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void setupViews() {
-        firstname_txt = findViewById(R.id.firstname_txt);
-        lastname_txt = findViewById(R.id.lastname_txt);
+        firstname_txt = findViewById(R.id.edttxt_fName);
+        lastname_txt = findViewById(R.id.edttxt_lName);
         email_txt = findViewById(R.id.email_txt);
         password = findViewById(R.id.password);
         gender_spn = findViewById(R.id.gender_spn);
-        number_txt = findViewById(R.id.number_txt);
-
-        registration_btn = findViewById(R.id.registration_btn);
-        login_page_btn = findViewById(R.id.login_page_btn);
+        number_txt = findViewById(R.id.edttxt_phoneN);
+        age = findViewById(R.id.age);
+        city = findViewById(R.id.city);
+        signUpButton = findViewById(R.id.singUp_btn);
+        signInButton = findViewById(R.id.signIn_btn);
 
         String[] genderChoice = {"Select Your Gender", "Female", "Male"};
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, genderChoice);
+        gender_spn.setAdapter(genderAdapter);
 
-        ArrayAdapter<String> gender = new ArrayAdapter<>(this, R.layout.spinner_item, genderChoice);
-        gender_spn.setAdapter(gender);
-
-
-        registration_btn.setOnClickListener(new View.OnClickListener() {
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                isAllChecked = checkInformation();
-
+                boolean isAllChecked = checkInformation();
                 if (isAllChecked) {
-                   // writeToDatabase();
+                storeIntoDataBase();
                 }
-
             }
         });
 
-        login_page_btn.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //into login class
-                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
     }
-
 
     boolean isEmail(EditText text) {
         CharSequence email_txt = text.getText().toString();
         return (!TextUtils.isEmpty(email_txt) && Patterns.EMAIL_ADDRESS.matcher(email_txt).matches());
     }
 
-
     private boolean checkInformation() {
-
         if (firstname_txt.getText().toString().isEmpty()) {
             firstname_txt.setError("First Name is Required");
             return false;
@@ -102,7 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
             email_txt.setError("Email is Required");
             return false;
         } else if (!isEmail(email_txt)) {
-            email_txt.setError("Please Enter a Valid Username!");
+            email_txt.setError("Please Enter a Valid Email Address");
             return false;
         }
 
@@ -111,38 +101,85 @@ public class RegistrationActivity extends AppCompatActivity {
             return false;
         }
 
-        if (password.getText().toString().isEmpty() || password.length() < 6) {
+        if (password.getText().toString().isEmpty() || password.getText().toString().length() < 6) {
             password.setError("Please Enter a Password With at Least 6 Characters");
+            return false;
+
+        }
+        if (age.getText().toString().isEmpty()) {
+            age.setError("Please Enter Your Age");
+            return false;
+        }
+
+        if (city.getText().toString().isEmpty()) {
+            city.setError("Please Enter Your City");
             return false;
         }
 
         return true;
     }
 
+    void storeIntoDataBase(){
+    boolean isAllChecked = checkInformation();
+        if (isAllChecked) {
+            // Get a reference to the Firestore database
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-//    private void writeToDatabase() {
-//        String uuid = UUID.randomUUID().toString();
-//        Map<String, Object> user = new HashMap<>();
-//        user.put("firstName", firstname_txt.getText().toString());
-//        user.put("lastName", lastname_txt.getText().toString());
-//        user.put("dob", dob_txt);
-//        user.put("gender", gender_spn.getSelectedItem().toString());
-//        user.put("email", email_txt.getText().toString());
-//        user.put("password", password.getText().toString());
-//        user.put("phoneNumber", number_txt.getText().toString());
-//
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("users");
-//        myRef.child(uuid).setValue(user);
-//
-//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("userID", uuid);
-//        editor.apply();
-//
-//        Intent intent = new Intent(this, login.class);
-//        startActivity(intent);
-//        finish();
-//    }
+            // Create a new document in the "users" collection
+            String firstName = firstname_txt.getText().toString();
+            String lastName = lastname_txt.getText().toString();
+            String email = email_txt.getText().toString();
+            String gender = gender_spn.getSelectedItem().toString();
+            String phoneNumber = number_txt.getText().toString();
+            String userAge = age.getText().toString();
+            String userCity = city.getText().toString();
+            String pass = password.getText().toString();
+
+            // Create a new user object
+            Map<String, Object> user = new HashMap<>();
+            user.put("firstName", firstName);
+            user.put("lastName", lastName);
+            user.put("email", email);
+            user.put("gender", gender);
+            user.put("phoneNumber", phoneNumber);
+            user.put("age", userAge);
+            user.put("city", userCity);
+            user.put("password", pass);
+            user.put("role","Renter");
+
+
+            // Add the user to the database
+            Task<DocumentReference> users = db.collection("users")
+                    .add(user)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            // Handle successful addition of user
+                            Toast.makeText(RegistrationActivity.this, "User added successfully!", Toast.LENGTH_SHORT).show();
+                            // Clear input fields after successful addition
+                            clearInputFields();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Handle failure to add user
+                            Toast.makeText(RegistrationActivity.this, "Failed to add user: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                   }
+                 }
+                private void clearInputFields() {
+                    // Clear the text in all EditText fields
+                    firstname_txt.setText("");
+                    lastname_txt.setText("");
+                    email_txt.setText("");
+                    number_txt.setText("");
+                    password.setText("");
+                    age.setText("");
+                    city.setText("");
+
+                    gender_spn.setSelection(0);
+                }
+
 }
-

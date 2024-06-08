@@ -49,4 +49,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnOpenProfile"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/home" />
+
+    <ImageView
+        android:id="@+id/iconAddCar"
+        android:layout_width="131dp"
+        android:layout_height="95dp"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="305dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/addcar" />
+
 </RelativeLayout>

@@ -30,14 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Initialize Firebase
         FirebaseApp.initializeApp(this);
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        // Initialize SharedPreferences
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Initialize views
         welcomeText = findViewById(R.id.welcomeText);
         signInText = findViewById(R.id.signInText);
         usernameText = findViewById(R.id.usernameText);
@@ -45,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         signUpButton = findViewById(R.id.signUpButton);
 
-        // Set click listeners
         signInButton.setOnClickListener(v -> {
             checkDatabase();
 

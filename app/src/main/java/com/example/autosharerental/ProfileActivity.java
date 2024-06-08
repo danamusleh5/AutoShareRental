@@ -57,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         updateProfile.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileActivity.this, UpdateProfile.class);
+            intent.putExtra("userEmail", userEmail);
             startActivity(intent);
             finish();
         });

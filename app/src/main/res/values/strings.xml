@@ -44,4 +44,7 @@
     <string name="start_your_journey_with_us">Start Your Journey With Us!</string>
     <string name="don_t_have_an_account">Don\'t Have an Account?</string>
     <string name="register_now">Register Now!</string>
+    <string name="add_seller">Add Seller</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

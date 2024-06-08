@@ -3,6 +3,7 @@ package com.example.autosharerental;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +16,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ImageView iconAddCar = findViewById(R.id.iconAddCar);
-        ImageView iconProfile = findViewById(R.id.iconProfile);
-        ImageView iconAbout = findViewById(R.id.iconAbout);
+        Button openProfile = findViewById(R.id.openProfile);
         TextView title = findViewById(R.id.title);
 
         iconAddCar.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        iconProfile.setOnClickListener(new View.OnClickListener() {
+        openProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
